@@ -18,4 +18,7 @@ class TestHello(unittest.TestCase):
         name = 123
         # Call the function
         with self.assertRaises(TypeError):
-            message = hello.hello(name)     
+            message = hello.hello(name)
+
+if __name__ == '__main__':
+    unittest.main()     
