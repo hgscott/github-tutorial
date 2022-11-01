@@ -97,6 +97,7 @@ In the `test` directory, there is a file called `test_hello.py` to test `hello.p
 
 1. Create a test that passes your name to the function and checks that the output is as expected.
 2. Create a test that passes an integer, and check the the function fails.
+3. You can set up to run these tests more interactively.
 
 </details>
 
@@ -107,7 +108,7 @@ _Nice work making those commits :sparkles:_
 
 Now that you’ve created a commit, it’s time to share your proposed change through a pull request!
 
-**What is a pull request?**: Collaboration happens on a pull request. The pull request shows the changes in your branch to other people. This pull request is going to keep the changes you just made on your branch and propose applying them to the `main` branch.
+**What is a pull request?**: Collaboration happens on a pull request. The pull request shows the changes in your branch to other people. This pull request is going to keep the changes you just made on your branch and propose applying them to the `develop` branch.
 <br>:tv: [Video: Introduction to pull requests](https://youtu.be/kJr-PIfLDl4)
 
 ### :keyboard: Activity: Create a pull request
