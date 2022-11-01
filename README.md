@@ -1,7 +1,7 @@
-# GitHub Tutorial
+# GitHub Tutorial: Agile & Continuous Testing
 
 - **Who is this for**: Anyone interested in starting using GitHub for Continuous testing/integration.
-- **What you'll learn**: We'll introduce repositories, issues, branches, commits, pull requests, tests, and workflows.
+- **What you'll learn**: We'll introduce repositories, issues, kanban boards, branches, commits, pull requests, tests, and workflows.
 - **What you'll build**: We'll write some short code (a Hello World function) and a automated test for it.
 - **Prerequisites**: None. This course is a great introduction for your first day on GitHub.
 - **How long**: This course is four steps long and takes less than one hour to complete.
@@ -12,16 +12,6 @@ _Welcome to "Introduction to GitHub"! :wave:_
 <br>:tv: [Video: What is GitHub?](https://www.youtube.com/watch?v=w3jLJU7DT5E)
 
 **What is Sourcetree**: [Sourcetree](https://www.sourcetreeapp.com/) is a free Git client for Windows and Mac. It is useful both for beginers or people with little command line experience, AND for experts who want to do more advanced work like reviewing changesets, stashing, cherry-pick ingbetween branches and more.
-
-**What is a repository?**: A [repository](https://docs.github.com/get-started/quickstart/github-glossary#repository) is a project containing files and folders. A repository tracks versions of files and folders.
-<br>:tv: [Video: Exploring a repository](https://www.youtube.com/watch?v=R8OAwrcMlRw)
-
-**What is a branch?**: A [branch](https://docs.github.com/en/get-started/quickstart/github-glossary#branch) is a parallel version of your repository. By default, your repository has one branch named `main` and it is considered to be the definitive branch. You can create additional branches off of `main` in your repository. You can use branches to have different versions of a project at one time.
-
-On additional branches, you can make edits without impacting the `main` version. Branches allow you to separate your work from the `main` branch. In other words, everyone's work is safe while you contribute.
-<br>:tv: [Video: Branches](https://www.youtube.com/watch?v=xgQmu81G1yY)
-
-**What is Trunk-Based Development?** [Trunk Based Development]() is a branching model, where developers collaborate on code in a single branch called ‘trunk’ (or on their short lived feature branches). You should resist any pressure to create other long-lived development branches by employing documented techniques. You avoid merge hell, do not break the build, and live happily ever after. ![Trunk Based Dev Diagram](https://trunkbaseddevelopment.com/trunk1c.png)
 
 ## How to use this tutorial
 
@@ -35,6 +25,9 @@ On additional branches, you can make edits without impacting the `main` version.
 
 <details id=1>
 <summary><h2>Step 1: Clone your Repository Using SourceTree</h2></summary>
+**What is a repository?**: A [repository](https://docs.github.com/get-started/quickstart/github-glossary#repository) is a project containing files and folders. A repository tracks versions of files and folders.
+<br>:tv: [Video: Exploring a repository](https://www.youtube.com/watch?v=R8OAwrcMlRw)
+
 1. From SourceTree, click Remote. All of your remote projects display.
 <img alt="image showing my-first-branch entry" src="sourcetree_home_screenshot.png"/>
 2. Click Clone next to the repository you wish to clone locally.
@@ -46,13 +39,22 @@ On additional branches, you can make edits without impacting the `main` version.
 
 ### :keyboard: Activity: Your first branch with Sourcetree
 
+**What is a branch?**: A [branch](https://docs.github.com/en/get-started/quickstart/github-glossary#branch) is a parallel version of your repository. By default, your repository has one branch named `main` and it is considered to be the definitive branch. You can create additional branches off of `main` in your repository. You can use branches to have different versions of a project at one time.
+
+On additional branches, you can make edits without impacting the `main` version. Branches allow you to separate your work from the `main` branch. In other words, everyone's work is safe while you contribute.
+<br>:tv: [Video: Branches](https://www.youtube.com/watch?v=xgQmu81G1yY)
+
+**What is Trunk-Based Development?** [Trunk Based Development]() is a branching model, where developers collaborate on code in a single branch called ‘trunk’ (or on their short lived feature branches). You should resist any pressure to create other long-lived development branches by employing documented techniques. You avoid merge hell, do not break the build, and live happily ever after. ![Trunk Based Dev Diagram](https://trunkbaseddevelopment.com/trunk1c.png)
+
+Instead of a single main branch, we will use two branches to record the history of the project. The main branch stores the official release history, and the develop branch serves as an integration branch for features. It's also convenient to tag all commits in the main branch with a version number.
+
+The first step is to complement the default main with a develop branch. A simple way to do this to create empty develop branch locally and push it to the server.
+
 1. From Sourcetree, click the Branch button.
 2. From the New Branch field, enter a name for your branch- we'll call this one "develop".
 3. Click Create Branch.
 
 _You created a branch! :tada:_
-
-The **develop** branch...
 
 Now, do the same for a feature branch, we'll call "hello".
 
@@ -72,7 +74,7 @@ Now that you are on your feature branch, you can edit your project without chang
 The following steps will guide you through the process of committing a change on GitHub using Sourcetree. Committing a change requires first adding a new file to your new branch. 
 
 1. In your favorite IDE, make sure you're on your new branch `hello`.
-2. Create a new file called `hello.py`.
+2. Open the file called `hello.py` in the directory `hello`.
 3. In your IDE, copy the following content to your file:
    ```
    def hello(name: str):
@@ -80,15 +82,21 @@ The following steps will guide you through the process of committing a change on
    ```
 4. Open the History view in SourceTree and notice that your repository now has uncommitted changes.
 5. Click the check mark next to `Unstaged Files` to stage all of your changes.
-6. Click the Commit button at the top to commit the file.
-7. In the message box, enter a commit message.
-8. Click the Commit button under the box. From Sourcetree's History, you'll see that the file has been updated on your new branch.
-9. Click the Push button to push your new branch to the repository.
-10. Under the Push? column from the dialog box that appears, select your new branch to indicate that you are pushing that branch to origin and click OK.
+6. In the message box, enter a commit message.
+7. Click the Commit button under the box. From Sourcetree's History, you'll see that the file has been updated on your new branch.
+8. Click the Push button to push your new branch to the repository.
+9. Under the Push? column from the dialog box that appears, select your new branch to indicate that you are pushing that branch to origin and click OK.
 </details>
 
 <details id=4>
 <summary><h2>Step 4: Create a test</h2></summary>
+
+**What is unittest?**: The unittest module provides a rich set of tools for constructing and running tests. It supports test automation, sharing of setup and shutdown code for tests, aggregation of tests into collections, and independence of the tests from the reporting framework.
+
+In the `test` directory, there is a file called `test_hello.py` to test `hello.py`- we will add 2 tests to the file.
+
+1. Create a test that passes your name to the function and checks that the output is as expected.
+2. Create a test that passes an integer, and check the the function fails.
 
 </details>
 
