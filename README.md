@@ -24,7 +24,41 @@ _Welcome to "Introduction to GitHub"! :wave:_
 3. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
 
 <details id=1>
-<summary><h2>Step 1: Clone your Repository Using SourceTree</h2></summary>
+<summary><h2>Step 1: Open an Issue and Track on a Kanban board</h2></summary>
+
+**Issues** let you track your work on GitHub, and are useful for discussing specific details of a project such as bug reports, planned improvements and feedback.
+
+Let's open some issues about the work we are going to do today.
+
+1. On GitHub.com, navigate to the main page of the repository.
+2. Under your repository name, click Issues.
+3. Click New issue.
+4. Type a title and description for your issue. We will title our first issue "Write function that says hello to a given name".
+5. When you're finished, click Submit new issue.
+
+Repeat that process to create the following issues:
+* Test the hello function
+* Automatically build and test code
+
+Another way to track your issues is by using **Projects**. A project is an adaptable spreadsheet that integrates with your issues and pull requests on GitHub to help you plan and track your work effectively. 
+
+We'll make a project for our work:
+
+1. In the top right corner of GitHub.com, click your profile photo, then click Your profile.
+2. On your profile, click  Projects.
+3. Click New project.
+4. When prompted to select a template, click a template or, to start with an empty project, click Board. Then, click Create.
+
+The board view of the project is essentially a **Kanban board**.
+
+A kanban board is an agile project management tool designed to help visualize work, limit work-in-progress, and maximize efficiency (or flow).
+
+We can add the issues we have already created to the board by clicking the "Add Item" button at the bottom of the Todo column and searching for your repository using the `#` key.
+
+</details>
+
+<details id=2>
+<summary><h2>Step 2: Clone your Repository Using SourceTree</h2></summary>
 **What is a repository?**: A [repository](https://docs.github.com/get-started/quickstart/github-glossary#repository) is a project containing files and folders. A repository tracks versions of files and folders.
 <br>:tv: [Video: Exploring a repository](https://www.youtube.com/watch?v=R8OAwrcMlRw)
 
@@ -34,8 +68,8 @@ _Welcome to "Introduction to GitHub"! :wave:_
 3. From the Clone a repository window, click Clone. Click Local to see a list of your cloned repositories. 
 </details>
 
-<details id=2>
-<summary><h2>Step 2: Create branches for Trunk Based Development</h2></summary>
+<details id=3>
+<summary><h2>Step 3: Create branches for Trunk Based Development</h2></summary>
 
 ### :keyboard: Activity: Your first branch with Sourcetree
 
@@ -62,8 +96,8 @@ Now you are all set to start developing!
 
 </details>
 
-<details id=3>
-<summary><h2>Step 3: Commit a file</h2></summary>
+<details id=4>
+<summary><h2>Step 4: Commit a file</h2></summary>
 
 Now that you are on your feature branch, you can edit your project without changing the `main` branch. It’s time to create a file and make your first commit!
 
@@ -88,8 +122,8 @@ The following steps will guide you through the process of committing a change on
 9. Under the Push? column from the dialog box that appears, select your new branch to indicate that you are pushing that branch to origin and click OK.
 </details>
 
-<details id=4>
-<summary><h2>Step 4: Create a test</h2></summary>
+<details id=5>
+<summary><h2>Step 5: Create a test</h2></summary>
 
 **What is unittest?**: The unittest module provides a rich set of tools for constructing and running tests. It supports test automation, sharing of setup and shutdown code for tests, aggregation of tests into collections, and independence of the tests from the reporting framework.
 
@@ -101,8 +135,8 @@ In the `test` directory, there is a file called `test_hello.py` to test `hello.p
 
 </details>
 
-<details id=5>
-<summary><h2>Step 5: Open a pull request</h2></summary>
+<details id=6>
+<summary><h2>Step 6: Open a pull request</h2></summary>
 
 _Nice work making those commits :sparkles:_
 
@@ -135,8 +169,8 @@ You may have noticed after your commit that a message displayed indicating your 
 
 </details>
 
-<details id=6>
-<summary><h2>Step 6: Merge your pull request</h2></summary>
+<details id=7>
+<summary><h2>Step 7: Merge your pull request</h2></summary>
 
 _Nicely done friend! :sunglasses:_
 
@@ -159,8 +193,8 @@ As noted in the previous step, you may have seen evidence of an action running w
 
 </details>
 
-<details id=7>
-<summary><h2>Step 7: Set up an automated workflow</h2></summary>
+<details id=8>
+<summary><h2>Step 8: Set up an automated workflow</h2></summary>
 
 **GitHub Actions** is a continuous integration and continuous delivery (CI/CD) platform that allows you to automate your build, test, and deployment pipeline. You can create workflows that build and test every pull request to your repository, or deploy merged pull requests to production.
 
