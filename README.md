@@ -243,22 +243,22 @@ We will create a workflow to run our tests every time you push to a branch, and 
    ```
    9. The `uses` keyword specifies that this step will run `v3` of the `actions/checkout` action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
    ```
-            - uses: actions/checkout@v2
+         - uses: actions/checkout@v2
    ```
    10. This step uses the `actions/setup-python@v2` action to install the specified version of python.
    ```
-            - name: Set up Python ${{ matrix.python-version }}
-            uses: actions/setup-python@v2
-            with:
-               python-version: ${{ matrix.python-version }}
+         - name: Set up Python ${{ matrix.python-version }}
+           uses: actions/setup-python@v2
+           with:
+              python-version: ${{ matrix.python-version }}
    ```
    11. The `run` keywork tells the job to execute a command on the runner. In this case you are using python to pip install the tools you need to run the workflow.
    ```
-            - name: Install dependencies
-            run: |
-               python -m pip install --upgrade pip
-               python -m pip install flake8 pytest
-               if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+         - name: Install dependencies
+         run: |
+            python -m pip install --upgrade pip
+            python -m pip install flake8 pytest
+            if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
    ```
    12. Here, the `run` keyword is using flake8 to lint the code.
    ```
