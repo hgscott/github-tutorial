@@ -275,6 +275,11 @@ We will create a workflow to run our tests every time you push to a branch, and 
                pip install .
                pytest
 ```
-4. Commit these changes and push them to your GitHub repository. We will see a new action and check on its status!
+4. Commit these changes and push them to your GitHub repository.
+5. We can view the activity for a workflow run on the GitHub website.
+   1. Under the repository name, click Actions.
+   2. Here we have only a single workflow, but if you had multiple, you could click on the name of the workflow you are interested in in the left sidebar to see only those results.
+   3. To get more details on a single workflow run, click on the name of the event that triggered the workflow.
+   4. From there, you can look at individual jobs, and their console output.
 
 </details>
