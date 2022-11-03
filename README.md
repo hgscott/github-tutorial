@@ -204,48 +204,77 @@ We will create a workflow to run our tests every time you push to a branch, and 
 
 1. Make a new feature branch for setting up the action.
 2. In your repository, create the .github/workflows/ directory to store your workflow files.
-3. In the .github/workflows/ directory, create a new file called learn-github-actions.yml and add the following code.
+3. In the .github/workflows/ directory, create a new file called learn-github-actions.yml and add the following lines:
+   1. Define the name of the workflow as it will appear in the "Actions" tab of the GitHub repository.
+   ```
+   name: Python package
+   ```
+   2. Specify the trigger(s) for the action. This example used the `push` and `pull_request` event, so a workflow run is triggered every time someone pushes a change to the repository (on any branch) or opens a pull a request.
+   ```
+   on:
+   push:
+   pull_request:
+   ```
+   3. Group together all the jobs that run in the workflow.
+   ```
+   jobs:
+   ```
+   4. Define a job named `build`.
+   ```
+      build:
+   ```
+   5. Define the type of machine to run the job on. Here we will use a GitHub-hosted runner, specifically a virtual machine of the latest version of Ubuntu Linux.
+   ```
+         runs-on: ubuntu-latest
+         strategy:
+   ```
+   6. You can control how job failures are handled with jobs. If `fail-fast` is set to `true`, GitHub will cancel all in-progress and queued jobs in the matrix if any job in the matrix fails, which is the default. Here we will set it to false so that all jobs run regardless if one fails.
+   ```
+         fail-fast: false
+   ```
+   7. We will test our code on multiple python versions, listed here.
+   ```
+         matrix:
+            python-version: ["3.8", "3.9", "3.10"]
+   ```
+   8. Group together all the steps that run in the `build` job. Each item nested under this section is a separate action or shell script.
+   ```
+         steps:
+   ```
+   9. The `uses` keyword specifies that this step will run `v3` of the `actions/checkout` action. This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools). You should use the checkout action any time your workflow will run against the repository's code.
+   ```
+            - uses: actions/checkout@v2
+   ```
+   10. This step uses the `actions/setup-python@v2` action to install the specified version of python.
+   ```
+            - name: Set up Python ${{ matrix.python-version }}
+            uses: actions/setup-python@v2
+            with:
+               python-version: ${{ matrix.python-version }}
+   ```
+   11. The `run` keywork tells the job to execute a command on the runner. In this case you are using python to pip install the tools you need to run the workflow.
+   ```
+            - name: Install dependencies
+            run: |
+               python -m pip install --upgrade pip
+               python -m pip install flake8 pytest
+               if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+   ```
+   12. Here, the `run` keyword is using flake8 to lint the code.
+   ```
+            - name: Lint with flake8
+            run: |
+               # stop the build if there are Python syntax errors or undefined names
+               flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+               # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+               flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+   ```
+   13. Here the `run` keyword installs the code we wrote (in the hellofolder) and uses pytest to run the tests in our test folder.
+            - name: Test with pytest
+            run: |
+               pip install .
+               pytest
 ```
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
-
-name: Python package
-
-on:
-  push:
-  pull_request:
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        python-version: ["3.8", "3.9", "3.10"]
-
-    steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install flake8 pytest
-        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Lint with flake8
-      run: |
-        # stop the build if there are Python syntax errors or undefined names
-        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
-      run: |
-        pip install .
-        pytest
-```
-4. Commit these changes and push them to your GitHub repository.
+4. Commit these changes and push them to your GitHub repository. We will see a new action and check on its status!
 
 </details>
