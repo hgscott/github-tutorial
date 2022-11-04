@@ -16,11 +16,11 @@ _Welcome to "Introduction to GitHub"! :wave:_
 ## How to use this tutorial
 
 1. Above these instructions, right-click **Use this template** and open the link in a new tab.
-   ![Use this template](https://user-images.githubusercontent.com/1221423/169618716-fb17528d-f332-4fc5-a11a-eaa23562665e.png)
+   ![Use this template](imgs/use-this-template.png)
 2. In the new tab, follow the prompts to create a new repository.
    - For owner, choose your personal account or an organization to host the repository.
    - We recommend creating a public repository—private repositories will [use Actions minutes](https://docs.github.com/en/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
-   ![Create a new repository](https://user-images.githubusercontent.com/1221423/169618722-406dc508-add4-4074-83f0-c7a7ad87f6f3.png)
+   ![Create a new repository](imgs/create-repository.png)
 3. After your new repository is created, wait about 20 seconds, then refresh the page. Follow the step-by-step instructions in the new repository's README.
 
 <details id=1>
@@ -32,28 +32,45 @@ Let's open some issues about the work we are going to do today.
 
 1. On GitHub.com, navigate to the main page of the repository.
 2. Under your repository name, click Issues.
+<img alt="Click the issue button" source="imgs/issues-button.png"/>
 3. Click New issue.
+<img alt="New issue button" source="imgs/new-issue.png"/>
 4. Type a title and description for your issue. We will title our first issue "Write function that says hello to a given name".
+<img alt="Issue name" source="imgs/make-issue.png"/>
 5. When you're finished, click Submit new issue.
+<img alt="Issue name" source="imgs/submit-issue.png"/>
 
 Repeat that process to create the following issues:
 * Test the hello function
 * Automatically build and test code
 
+After that you will see all of your issues listed on the issue page.
+<img alt="Issue name" source="imgs/all-issues.png"/>
+
 Another way to track your issues is by using **Projects**. A project is an adaptable spreadsheet that integrates with your issues and pull requests on GitHub to help you plan and track your work effectively. 
 
 We'll make a project for our work:
 
-1. In the top right corner of GitHub.com, click your profile photo, then click Your profile.
-2. On your profile, click  Projects.
+1. In the top right corner of GitHub.com, click your profile photo, then click Your project.
+<img alt="Image" source="imgs/your-projects.png"/>
 3. Click New project.
-4. When prompted to select a template, click a template or, to start with an empty project, click Board. Then, click Create.
+<img alt="Image" source="imgs/new-project.png"/>
+4. When prompted to select a template, click Board, under Start from Scratch. Then, click Create.
+<img alt="Image" source="imgs/create-board.png"/>
 
 The board view of the project is essentially a **Kanban board**.
 
-A kanban board is an agile project management tool designed to help visualize work, limit work-in-progress, and maximize efficiency (or flow).
+A kanban board is an agile project management tool designed to help visualize work, limit work-in-progress, and maximize efficiency (or flow). It typically has the columns "To Do", "In Progress", and "Done", but you can have any columns that fit your workflow.
 
-We can add the issues we have already created to the board by clicking the "Add Item" button at the bottom of the Todo column and searching for your repository using the `#` key.
+We can add the issues we have already created to the board by:
+1. Clicking the "Add Item" button at the bottom of the Todo column
+<img alt="Image" source="imgs/add-item.png"/>
+2. Searching for your repository using the `#` key.
+<img alt="Image" source="imgs/search-repository.png"/>
+3. Click on the individual issues you have made in the repository to add them to the board.
+<img alt="Image" source="imgs/add-issues.png"/>
+4. We can see that all of our issues remain to be done, by looking at the board.
+<img alt="Image" source="imgs/board-300.png"/>
 
 </details>
 
@@ -63,9 +80,10 @@ We can add the issues we have already created to the board by clicking the "Add 
 <br>:tv: [Video: Exploring a repository](https://www.youtube.com/watch?v=R8OAwrcMlRw)
 
 1. From SourceTree, click Remote. All of your remote projects display.
-<img alt="image showing my-first-branch entry" src="sourcetree_home_screenshot.png"/>
 2. Click Clone next to the repository you wish to clone locally.
+<img alt="Image" src="sourcetree-clone.png"/>
 3. From the Clone a repository window, click Clone. Click Local to see a list of your cloned repositories. 
+<img alt="Image" src="clone.png"/>
 </details>
 
 <details id=3>
@@ -85,12 +103,16 @@ Instead of a single main branch, we will use two branches to record the history 
 The first step is to complement the default main with a develop branch. A simple way to do this to create empty develop branch locally and push it to the server.
 
 1. From Sourcetree, click the Branch button.
+<img alt="Image" src="click-branch.png"/>
 2. From the New Branch field, enter a name for your branch- we'll call this one "develop".
+<img alt="Image" src="name-develop.png"/>
 3. Click Create Branch.
 
 _You created a branch! :tada:_
 
 Now, do the same for a feature branch, we'll call "hello".
+<img alt="Image" src="click-branch-2.png"/>
+<img alt="Image" src="name-hello.png"/>
 
 Now you are all set to start developing!
 
@@ -101,6 +123,9 @@ Now you are all set to start developing!
 
 Now that you are on your feature branch, you can edit your project without changing the `main` branch. It’s time to create a file and make your first commit!
 
+First, we will claim a task on the Kanban board, by moving a task from the Todo column to the In Progress column.
+<img alt="Image" src="board-210.png"/>
+
 **What is a commit?**: A [commit](https://docs.github.com/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits) is a set of changes to the files and folders in your project. A commit exists in a branch.
 
 ### :keyboard: Activity: Your first commit
@@ -108,30 +133,91 @@ Now that you are on your feature branch, you can edit your project without chang
 The following steps will guide you through the process of committing a change on GitHub using Sourcetree. Committing a change requires first adding a new file to your new branch. 
 
 1. In your favorite IDE, make sure you're on your new branch `hello`.
+<img alt="Image" src="vscode.png"/>
 2. Open the file called `hello.py` in the directory `hello`.
+<img alt="Image" src="hello-todo.png"/>
 3. In your IDE, copy the following content to your file:
    ```
    def hello(name: str):
-        print('Hello, ' + name + '!')
+        return 'Hello, ' + name + '!'
    ```
 4. Open the History view in SourceTree and notice that your repository now has uncommitted changes.
-5. Click the check mark next to `Unstaged Files` to stage all of your changes.
+<img alt="Image" src="history.png"/>
+5. Open the File Status view, and click the check mark next to `Unstaged Files` to stage all of your changes.
+<img alt="Image" src="unstaged-changes.png"/>
 6. In the message box, enter a commit message.
+<img alt="Image" src="commit-msg.png"/>
 7. Click the Commit button under the box. From Sourcetree's History, you'll see that the file has been updated on your new branch.
 8. Click the Push button to push your new branch to the repository.
-9. Under the Push? column from the dialog box that appears, select your new branch to indicate that you are pushing that branch to origin and click OK.
+<img alt="Image" src="push.png"/>
+9. Under the Push? column from the dialog box that appears, select your new branches to indicate that you are pushing that branch to origin and click OK.
+<img alt="Image" src="remote-branches.png"/>
+
+Now that we are doen with that task, we will move the task from In Progress to Done and close the issue.
+<img alt="Image" src="click-branch.png"/>
 </details>
 
 <details id=5>
 <summary><h2>Step 5: Create a test</h2></summary>
 
+The next task we will tackle is the task for testing our function, so we will move that task from Todo to In Progress.
+<img alt="Image" src="board-111.png"/>
+
 **What is unittest?**: The unittest module provides a rich set of tools for constructing and running tests. It supports test automation, sharing of setup and shutdown code for tests, aggregation of tests into collections, and independence of the tests from the reporting framework.
 
-In the `test` directory, there is a file called `test_hello.py` to test `hello.py`- we will add 2 tests to the file.
+In the `test` directory, there is a file called `test_hello.py` we will add 2 tests to the `TestHello` class.
 
-1. Create a test that passes your name to the function and checks that the output is as expected.
-2. Create a test that passes an integer, and check the the function fails.
-3. You can set up to run these tests more interactively.
+1. The first test passes a name to the function and checks that the output is as expected.
+   1. We'll call this function 'test_hello_name` by typing:
+   ```
+   def test_hello_name(self):
+   ```
+   2. Inside that test function, call our `hello` function with a name and check that the output is as excped with `assertEqual`. For example, to test teh name "John" we would write:
+   ```
+       self.assertEqual(hello.hello('John'), 'Hello, John!')
+   ```
+2. We can run the tests directly in our IDE to check that our tests are passing. 
+   1. To set up tests in VSCode:
+      1. Click the beaker in the the left side bar.
+      <img alt="Image" src="click-beaker.png"/>
+      2. Then click "Configure Python Tests"
+      <img alt="Image" src="configure-tests.png"/>
+      3. We'll select `unittest` as the testing framework
+      <img alt="Image" src="select-unittest.png"/>
+      4. Select `test` as the durectory containing the tests
+      <img alt="Image" src="pick-test-dir.png"/>
+      5. And select `test_*.py` as the pattern
+      <img alt="Image" src="pick-test-pattern.png"/>
+   2. We should now see the name of our test nested under the class, file, and directory
+   <img alt="Image" src="test-lsit.png"/>
+   3. We can run our one specific test by clicking on the "play" button next to its name
+   <img alt="Image" src="run-test_hello.png"/>
+   4. Or we can run all of our tests (in this case that is the same thing),, by clicking on the "play" button at the top of the menu (on the test directory)
+   <img alt="Image" src="run-all-tests.png"/>
+2. We can also test that the function fails when we want it to. Now, we will create a test that passes an integer instead of a string as the name, so we would expect the fucntion to raise a TypeError.
+   1. We'll call this function `test_integer`:
+   ```
+   def test_integer(self):
+   ```
+   2. We will tell the test to expect a Type error with the line
+   ```
+       with self.assertRaises(TypeError):
+   ```
+   3. Then inside of that `with` statement, run the function with an integer:
+   ```
+          hello.hello(123)
+   ```
+3. We can now rerun all of the tests in the `test` durectory and check that our new `test_integer` test passing:
+   1. Click on the play button by `test`
+   <img alt="Image" src="new-test.png"/>
+   2. The green checkmarks next to all the test names means that everything is passing
+   <img alt="Image" src="passing.png"/>
+4. Now commit and push these changes to the repositry using SourceTree.
+<img alt="Image" src="push-2.png"/>
+<img alt="Image" src="remote-branches-2.png"/>
+
+Now that we have finished this task, we will make the task on the kanban board from In Progress to Done.
+<img alt="Image" src="board-102.png"/>
 
 </details>
 
@@ -147,25 +233,18 @@ Now that you’ve created a commit, it’s time to share your proposed change th
 
 ### :keyboard: Activity: Create a pull request
 
-You may have noticed after your commit that a message displayed indicating your recent push to your branch and providing a button that says **Compare & pull request**.
+1. You may have noticed after your commit that a message displayed indicating your recent push to your branch and providing a button that says **Compare & pull request**.
 
-![screenshot of message and button](/images/compare-and-pull-request.png)
+<img alt="Image" src="compare-and-pull.png"/>
 
- If you want, feel free to click **Compare & pull request**, and then skip to step 6 below. If you don't click the button, the instructions below walk you through manually setting up the pull request.
-
-1. Click on the **Pull requests** tab in your repository.
-2. Click **New pull request**.
-3. In the **base:** dropdown, make sure **main** is selected.
-4. Select the **compare:** dropdown, and click `my-first-branch`. <br>
-   <img alt="screenshot showing both branch selections" src="/images/pull-request-branches.png"/>
-5. Click **Create pull request**.
-6. Enter a title for your pull request: `Add my first file`.
-7. The next field helps you provide a description of the changes you made. Feel free to add a description of what you’ve accomplished so far. As a reminder, you have: created a branch, created a file and made a commit! <br>
-   <img alt="screenshot showing pull request" src="/images/Pull-request-description.png"/>
-8. Click **Create pull request**.
-9. Move on to Step 4! <br>
-   **Note**: Like before, you can wait about 20 seconds, then refresh this page (the one you're following instructions from) and [GitHub Actions](https://docs.github.com/en/actions) will automatically close this step and open the next one. As a perk, you may see evidence of GitHub Actions running on the tab with the pull request opened! The image below shows a line you might see on your pull request after the Action finishes running.<br>
-   <img alt="screenshot of an example of an actions line" src="/images/Actions-to-step-4.png"/>
+2. Click **Compare & pull request**.
+3. In the **base:** dropdown, make sure **develop** is selected.
+4. Select the **compare:** dropdown, and click `hello`. <br>
+5. Title the pull request to something meaningful, such as "Write and test Hello function"
+<img alt="Image" src="create-pull.png"/>
+7. The next field helps you provide a description of the changes you made. Feel free to add a description of what you’ve accomplished so far. As a reminder, you have: created two brances, added a function to the `hello` module, and tested that function! <br>
+6. Click **Create pull request**.
+7. On the new pull request page you will see the information you just provided along with the commits you made and a diff of the files you edited.
 
 </details>
 
@@ -179,17 +258,24 @@ You successfully created a pull request. You can now merge your pull request.
 **What is a _merge_**: A [merge](https://docs.github.com/en/get-started/quickstart/github-glossary#merge) adds the changes in your pull request and branch into the `main` branch.
 <br>:tv: [Video: Understanding the GitHub flow](https://www.youtube.com/watch?v=PBI2Rz-ZOxU)
 
-As noted in the previous step, you may have seen evidence of an action running which automatically progresses your instructions to the next step. You'll have to wait for it to finish before you can merge your pull request. It will be ready when the merge pull request button is green.
-
 ![screenshot of green merge pull request button](/images/Green-merge-pull-request.png)
 ### :keyboard: Activity: Merge the pull request
 
 1. Click **Merge pull request**.
-1. Click **Confirm merge**.
-1. Once your branch has been merged, you don't need it anymore. To delete this branch, click **Delete branch**.<br>
-   <img alt="screenshot showing delete branch button" src="/images/delete-branch.png"/>
-2. Check out the **Finish** step to see what you can learn next!<br>
-   **Note**: Like before, you can wait about 20 seconds, then refresh this page (the one you're following instructions from) and [GitHub Actions](https://docs.github.com/en/actions) will automatically close this step and open the next one.
+2. Click **Confirm merge**.
+<img alt="Image" src="confirm-merge.png"/>
+3. Once your branch has been merged, you don't need it anymore. To delete this branch, click **Delete branch**.<br>
+<img alt="Image" src="delete-branch.png"/>
+4. Back in Sourcetree check out the `develop` branch by right-clicking on it and selecting "Checkout develop"
+<img alt="Image" src="checkout-develop.png"/>
+5. You can pull the merged changes by clicking pull, and when prompted, confirm.
+<img alt="Image" src="pull-develop.png"/>
+6. You can now see on the diagram that the hello branch came off of the develop branch and went back into it.
+<img alt="Image" src="history-3.png"/>
+7. Since it is fully merged, it is safe to delete the `hello` branch. To do this, right click on `hello` under `Branches` and select `Delete hello`.
+<img alt="Image" src="delete-hello.png"/>
+8. when prompted, say OK.
+<img alt="Image" src="confirm-delete.png"/>
 
 </details>
 
@@ -202,9 +288,52 @@ You can configure a GitHub Actions *workflow* to be triggered when an *event* oc
 
 We will create a workflow to run our tests every time you push to a branch, and every time you open a pull request. This will let you know if any changes have broken your code unexpectedly, and if your code is safe to merge into the development branch.
 
-1. Make a new feature branch for setting up the action.
-2. In your repository, create the .github/workflows/ directory to store your workflow files.
-3. In the .github/workflows/ directory, create a new file called learn-github-actions.yml and add the following lines:
+To claim this task, move the final issue on the kanban chart from Todo to In Progress.
+<img alt="Image" src="branch-012.png"/>
+
+1. In Sourcertree, make a new feature branch for setting up the action, called `action`.
+<img alt="Image" src="action-branch.png"/>
+2. In your IDE, open the file `.github/workflows/python-package.yml`.
+3. Replace the TODO with the following lines:
+```
+name: Python package
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10"]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        python -m pip install flake8 pytest
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - name: Lint with flake8
+      run: |
+        # stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+    - name: Test with pytest
+      run: |
+        pip install .
+        pytest
+   ```
+   We'll know go thorugh what each oth these lines do.
    1. Define the name of the workflow as it will appear in the "Actions" tab of the GitHub repository.
    ```
    name: Python package
@@ -212,8 +341,8 @@ We will create a workflow to run our tests every time you push to a branch, and 
    2. Specify the trigger(s) for the action. This example used the `push` and `pull_request` event, so a workflow run is triggered every time someone pushes a change to the repository (on any branch) or opens a pull a request.
    ```
    on:
-   push:
-   pull_request:
+     push:
+     pull_request:
    ```
    3. Group together all the jobs that run in the workflow.
    ```
@@ -221,7 +350,7 @@ We will create a workflow to run our tests every time you push to a branch, and 
    ```
    4. Define a job named `build`.
    ```
-      build:
+     build:
    ```
    5. Define the type of machine to run the job on. Here we will use a GitHub-hosted runner, specifically a virtual machine of the latest version of Ubuntu Linux.
    ```
@@ -276,10 +405,19 @@ We will create a workflow to run our tests every time you push to a branch, and 
                pytest
 ```
 4. Commit these changes and push them to your GitHub repository.
+<img alt="Image" src="commit-workflow.png"/>
+<img alt="Image" src="push-action.png"/>
 5. We can view the activity for a workflow run on the GitHub website.
    1. Under the repository name, click Actions.
+   <img alt="Image" src="actions-tab.png"/>
    2. Here we have only a single workflow, but if you had multiple, you could click on the name of the workflow you are interested in in the left sidebar to see only those results.
+   <img alt="Image" src="select-workflow.png"/>
    3. To get more details on a single workflow run, click on the name of the event that triggered the workflow.
+   <img alt="Image" src="select-run.png"/>
    4. From there, you can look at individual jobs, and their console output.
+   <img alt="Image" src="run-output.png"/>
+   <img alt="Image" src="console-output.png"/>
+6. Finally, when we open a pull request to merge this code we can check that all tests are passing before merging.
+<img alt="Image" src="merge-tests.png"/>
 
 </details>
