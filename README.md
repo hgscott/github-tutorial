@@ -81,9 +81,9 @@ We can add the issues we have already created to the board by:
 
 1. From SourceTree, click Remote. All of your remote projects display.
 2. Click Clone next to the repository you wish to clone locally.
-![Image](sourcetree-clone.png)
+![Image](imgs/sourcetree-clone.png)
 3. From the Clone a repository window, click Clone. Click Local to see a list of your cloned repositories. 
-![Image](clone.png)
+![Image](imgs/clone.png)
 </details>
 
 <details id=3>
@@ -103,16 +103,16 @@ Instead of a single main branch, we will use two branches to record the history 
 The first step is to complement the default main with a develop branch. A simple way to do this to create empty develop branch locally and push it to the server.
 
 1. From Sourcetree, click the Branch button.
-![Image](click-branch.png)
+![Image](imgs/click-branch.png)
 2. From the New Branch field, enter a name for your branch- we'll call this one "develop".
-![Image](name-develop.png)
+![Image](imgs/name-develop.png)
 3. Click Create Branch.
 
 _You created a branch! :tada:_
 
 Now, do the same for a feature branch, we'll call "hello".
-![Image](click-branch-2.png)
-![Image](name-hello.png)
+![Image](imgs/click-branch-2.png)
+![Image](imgs/name-hello.png)
 
 Now you are all set to start developing!
 
@@ -124,7 +124,7 @@ Now you are all set to start developing!
 Now that you are on your feature branch, you can edit your project without changing the `main` branch. It’s time to create a file and make your first commit!
 
 First, we will claim a task on the Kanban board, by moving a task from the Todo column to the In Progress column.
-![Image](board-210.png)
+![Image](imgs/board-210.png)
 
 **What is a commit?**: A [commit](https://docs.github.com/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/about-commits) is a set of changes to the files and folders in your project. A commit exists in a branch.
 
@@ -133,35 +133,35 @@ First, we will claim a task on the Kanban board, by moving a task from the Todo 
 The following steps will guide you through the process of committing a change on GitHub using Sourcetree. Committing a change requires first adding a new file to your new branch. 
 
 1. In your favorite IDE, make sure you're on your new branch `hello`.
-![Image](vscode.png)
+![Image](imgs/vscode.png)
 2. Open the file called `hello.py` in the directory `hello`.
-![Image](hello-todo.png)
+![Image](imgs/hello-todo.png)
 3. In your IDE, copy the following content to your file:
    ```
    def hello(name: str):
         return 'Hello, ' + name + '!'
    ```
 4. Open the History view in SourceTree and notice that your repository now has uncommitted changes.
-![Image](history.png)
+![Image](imgs/history.png)
 5. Open the File Status view, and click the check mark next to `Unstaged Files` to stage all of your changes.
-![Image](unstaged-changes.png)
+![Image](imgs/unstaged-changes.png)
 6. In the message box, enter a commit message.
-![Image](commit-msg.png)
+![Image](imgs/commit-msg.png)
 7. Click the Commit button under the box. From Sourcetree's History, you'll see that the file has been updated on your new branch.
 8. Click the Push button to push your new branch to the repository.
-![Image](push.png)
+![Image](imgs/push.png)
 9. Under the Push? column from the dialog box that appears, select your new branches to indicate that you are pushing that branch to origin and click OK.
-![Image](remote-branches.png)
+![Image](imgs/remote-branches.png)
 
 Now that we are doen with that task, we will move the task from In Progress to Done and close the issue.
-![Image](click-branch.png)
+![Image](imgs/click-branch.png)
 </details>
 
 <details id=5>
 <summary><h2>Step 5: Create a test</h2></summary>
 
 The next task we will tackle is the task for testing our function, so we will move that task from Todo to In Progress.
-![Image](board-111.png)
+![Image](imgs/board-111.png)
 
 **What is unittest?**: The unittest module provides a rich set of tools for constructing and running tests. It supports test automation, sharing of setup and shutdown code for tests, aggregation of tests into collections, and independence of the tests from the reporting framework.
 
@@ -179,21 +179,21 @@ In the `test` directory, there is a file called `test_hello.py` we will add 2 te
 2. We can run the tests directly in our IDE to check that our tests are passing. 
    1. To set up tests in VSCode:
       1. Click the beaker in the the left side bar.
-      ![Image](click-beaker.png)
+      ![Image](imgs/click-beaker.png)
       2. Then click "Configure Python Tests"
-      ![Image](configure-tests.png)
+      ![Image](imgs/configure-tests.png)
       3. We'll select `unittest` as the testing framework
-      ![Image](select-unittest.png)
+      ![Image](imgs/select-unittest.png)
       4. Select `test` as the durectory containing the tests
-      ![Image](pick-test-dir.png)
+      ![Image](imgs/pick-test-dir.png)
       5. And select `test_*.py` as the pattern
-      ![Image](pick-test-pattern.png)
+      ![Image](imgs/pick-test-pattern.png)
    2. We should now see the name of our test nested under the class, file, and directory
-   ![Image](test-lsit.png)
+   ![Image](imgs/test-lsit.png)
    3. We can run our one specific test by clicking on the "play" button next to its name
-   ![Image](run-test_hello.png)
+   ![Image](imgs/run-test_hello.png)
    4. Or we can run all of our tests (in this case that is the same thing),, by clicking on the "play" button at the top of the menu (on the test directory)
-   ![Image](run-all-tests.png)
+   ![Image](imgs/run-all-tests.png)
 2. We can also test that the function fails when we want it to. Now, we will create a test that passes an integer instead of a string as the name, so we would expect the fucntion to raise a TypeError.
    1. We'll call this function `test_integer`:
    ```
@@ -209,15 +209,15 @@ In the `test` directory, there is a file called `test_hello.py` we will add 2 te
    ```
 3. We can now rerun all of the tests in the `test` durectory and check that our new `test_integer` test passing:
    1. Click on the play button by `test`
-   ![Image](new-test.png)
+   ![Image](imgs/new-test.png)
    2. The green checkmarks next to all the test names means that everything is passing
-   ![Image](passing.png)
+   ![Image](imgs/passing.png)
 4. Now commit and push these changes to the repositry using SourceTree.
-![Image](push-2.png)
-![Image](remote-branches-2.png)
+![Image](imgs/push-2.png)
+![Image](imgs/remote-branches-2.png)
 
 Now that we have finished this task, we will make the task on the kanban board from In Progress to Done.
-![Image](board-102.png)
+![Image](imgs/board-102.png)
 
 </details>
 
@@ -235,13 +235,13 @@ Now that you’ve created a commit, it’s time to share your proposed change th
 
 1. You may have noticed after your commit that a message displayed indicating your recent push to your branch and providing a button that says **Compare & pull request**.
 
-![Image](compare-and-pull.png)
+![Image](imgs/compare-and-pull.png)
 
 2. Click **Compare & pull request**.
 3. In the **base:** dropdown, make sure **develop** is selected.
 4. Select the **compare:** dropdown, and click `hello`. <br>
 5. Title the pull request to something meaningful, such as "Write and test Hello function"
-![Image](create-pull.png)
+![Image](imgs/create-pull.png)
 7. The next field helps you provide a description of the changes you made. Feel free to add a description of what you’ve accomplished so far. As a reminder, you have: created two brances, added a function to the `hello` module, and tested that function! <br>
 6. Click **Create pull request**.
 7. On the new pull request page you will see the information you just provided along with the commits you made and a diff of the files you edited.
@@ -257,25 +257,23 @@ You successfully created a pull request. You can now merge your pull request.
 
 **What is a _merge_**: A [merge](https://docs.github.com/en/get-started/quickstart/github-glossary#merge) adds the changes in your pull request and branch into the `main` branch.
 <br>:tv: [Video: Understanding the GitHub flow](https://www.youtube.com/watch?v=PBI2Rz-ZOxU)
-
-![screenshot of green merge pull request button](/images/Green-merge-pull-request.png)
 ### :keyboard: Activity: Merge the pull request
 
 1. Click **Merge pull request**.
 2. Click **Confirm merge**.
-![Image](confirm-merge.png)
+![Image](imgs/confirm-merge.png)
 3. Once your branch has been merged, you don't need it anymore. To delete this branch, click **Delete branch**.<br>
-![Image](delete-branch.png)
+![Image](imgs/delete-branch.png)
 4. Back in Sourcetree check out the `develop` branch by right-clicking on it and selecting "Checkout develop"
-![Image](checkout-develop.png)
+![Image](imgs/checkout-develop.png)
 5. You can pull the merged changes by clicking pull, and when prompted, confirm.
-![Image](pull-develop.png)
+![Image](imgs/pull-develop.png)
 6. You can now see on the diagram that the hello branch came off of the develop branch and went back into it.
-![Image](history-3.png)
+![Image](imgs/history-3.png)
 7. Since it is fully merged, it is safe to delete the `hello` branch. To do this, right click on `hello` under `Branches` and select `Delete hello`.
-![Image](delete-hello.png)
+![Image](imgs/delete-hello.png)
 8. when prompted, say OK.
-![Image](confirm-delete.png)
+![Image](imgs/confirm-delete.png)
 
 </details>
 
@@ -289,10 +287,10 @@ You can configure a GitHub Actions *workflow* to be triggered when an *event* oc
 We will create a workflow to run our tests every time you push to a branch, and every time you open a pull request. This will let you know if any changes have broken your code unexpectedly, and if your code is safe to merge into the development branch.
 
 To claim this task, move the final issue on the kanban chart from Todo to In Progress.
-![Image](branch-012.png)
+![Image](imgs/branch-012.png)
 
 1. In Sourcertree, make a new feature branch for setting up the action, called `action`.
-![Image](action-branch.png)
+![Image](imgs/action-branch.png)
 2. In your IDE, open the file `.github/workflows/python-package.yml`.
 3. Replace the TODO with the following lines:
 ```
@@ -405,19 +403,19 @@ jobs:
                pytest
 ```
 4. Commit these changes and push them to your GitHub repository.
-![Image](commit-workflow.png)
-![Image](push-action.png)
+![Image](imgs/commit-workflow.png)
+![Image](imgs/push-action.png)
 5. We can view the activity for a workflow run on the GitHub website.
    1. Under the repository name, click Actions.
-   ![Image](actions-tab.png)
+   ![Image](imgs/actions-tab.png)
    2. Here we have only a single workflow, but if you had multiple, you could click on the name of the workflow you are interested in in the left sidebar to see only those results.
-   ![Image](select-workflow.png)
+   ![Image](imgs/select-workflow.png)
    3. To get more details on a single workflow run, click on the name of the event that triggered the workflow.
-   ![Image](select-run.png)
+   ![Image](imgs/select-run.png)
    4. From there, you can look at individual jobs, and their console output.
-   ![Image](run-output.png)
-   ![Image](console-output.png)
+   ![Image](imgs/run-output.png)
+   ![Image](imgs/console-output.png)
 6. Finally, when we open a pull request to merge this code we can check that all tests are passing before merging.
-![Image](merge-tests.png)
+![Image](imgs/merge-tests.png)
 
 </details>
